@@ -1,0 +1,47 @@
+/* Reset */
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+/* Common */
+.container {
+	max-width: 1200px;
+	margin: auto;
+}
+
+/* Header */
+header {
+	text-align: center;
+}
+
+/* Main */
+main {
+	margin-top: 80px;
+}
+.todos-container {
+	background-color: #eee;
+	padding: 15px;
+}
+
+.todos-list {
+	list-style: none;
+}
+.todos-list li {
+	padding: 8px;
+	border-bottom: 1px solid gray;
+	display: flex;
+	color: red;
+}
+
+.todos-list li.active span {
+	color: green;
+	text-decoration: line-through;
+}
+
+.todos-list li i {
+	margin-left: auto;
+	cursor: pointer;
+	color: #000;
+}

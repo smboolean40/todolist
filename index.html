@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Todo list</title>
+		<!-- fontawesome -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<!-- /fontawesome -->
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	<body>
+		
+		<div id="root" class="container">
+			<!-- Intestazione -->
+			<header>
+				<div class="logo">LOGO</div>
+				<div class="search">
+					<input v-model="newTodo" type="text" placeholder="Nuovo Todo" @keyup.enter="addTodo()">
+					<button @click="addTodo()">Aggiungi</button>
+				</div>
+			</header>
+			<!-- /Intestazione -->
+			<!-- Corpo -->
+			<main>
+				<div class="todos-container">
+					<ul v-if="todos.length > 0" class="todos-list">
+						<li v-for="(todo, index) in todos" :key="index" :class="{active: todo.done}"> 
+							<span>{{todo.name}}</span>
+							<input type="text" v-model="todo.name">
+							<button v-if="todo.done == false" @click="todo.done = true">fatto</button> 
+							<i class="fas fa-times" @click="removeTodo(index)"></i>
+						</li>
+					</ul>
+					<h2 v-else>Non ci sono todo</h2>
+				</div>
+			</main>
+			<!-- /Corpo -->
+		</div>
+
+		<!-- vuejs -->
+		<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+		<!-- /vuejs -->
+		<script src="js/main.js"></script>
+	</body>
+</html>
